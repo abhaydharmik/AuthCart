@@ -1,16 +1,76 @@
-# React + Vite
+# 🛒 FullAuth Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A scalable E-Commerce web application built using React and modern architecture principles.
 
-Currently, two official plugins are available:
+This project is structured using a feature-based architecture and follows production-ready patterns.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React (Vite)
+- React Router DOM
+- Axios
+- Context API
+- useReducer
+- useMemo
+- LocalStorage
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Project Structure
+
+```bash
+src/
+ ├── app/
+ ├── components/
+ │     ├── layout/
+ │     └── ui/
+ ├── features/
+ ├── context/
+ ├── hooks/
+ ├── routes/
+ ├── services/
+ ├── utils/
+ ```
+
+
+## 🎯 Features (Planned & In Progress)
+
+### 🛍 Core Store
+- Product Listing
+- Product Details Page
+- Search & Filter
+- Add to Cart
+- Cart Management
+- Cart Total Calculation
+
+### 🔐 Authentication
+- Login & Register
+- Protected Routes
+- Role-based Access
+
+### 🛠 Admin Panel
+- Add / Edit / Delete Products
+- Dashboard Access
+
+### ⚡ Advanced
+- Pagination
+- Debounced Search
+- Performance Optimization
+- Error Handling
+- Loading States
+
+---
+
+## 🏗  Architecture Principles
+
+- Feature-based folder structure
+- Separation of concerns
+- API abstraction layer
+- Minimal global state
+- Derived state not stored
+- Reusable UI components
+- Clean routing system
+
+---
