@@ -42,7 +42,6 @@ const Home = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <p>{search}</p>
       <div className='product-card'>
         {filterProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
