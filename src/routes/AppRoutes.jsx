@@ -6,6 +6,7 @@ import Cart from "../features/cart/pages/Cart";
 import Login from "../features/auth/pages/Login";
 import Register from "../features/auth/pages/Register";
 import ProtectedRoute from "./ProtectedRoute";
+import Checkout from "../features/checkout/pages/Checkout";
 
 const AppRoutes = () => {
   return (
@@ -22,6 +23,14 @@ const AppRoutes = () => {
       />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route
+        path="/checkout"
+        element={
+          <ProtectedRoute>
+            <Checkout />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 };
