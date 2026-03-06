@@ -9,7 +9,7 @@ const ProductForm = () => {
     }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
         <h3>Add Product</h3>
 
         <input type="text" placeholder='Title' />
