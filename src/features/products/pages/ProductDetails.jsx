@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchSingleProduct } from "../productService";
 import { CartContext } from "../../../context/CartContext";
@@ -27,6 +27,10 @@ const ProductDetails = () => {
     getProduct();
   }, [id]);
 
+  const handleAddToCart = useCallback(() => {
+    dispatch({ type: "ADD_ITEM", payload: product });
+  }, [product, dispatch]);
+
   if (loading) return <h2>Loading..</h2>;
 
   if (error) return <h2>{error}</h2>;
@@ -48,11 +52,7 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        <button
-          onClick={() => dispatch({ type: "ADD_ITEM", payload: product })}
-        >
-          Add to Cart
-        </button>
+        <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </>
   );
