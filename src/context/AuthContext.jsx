@@ -7,8 +7,9 @@ export const AuthProvider = ({ children }) => {
 
   const login = (credentials) => {
     const fakeUser = {
-      email: "heinvalid@gmail.com",
-      password: "heinvalid04",
+      email: credentials.email,
+      token: "12345",
+      role: credentials.email === "admin@gmail.com" ? "admin" : "user"
     };
 
     setUser(fakeUser);

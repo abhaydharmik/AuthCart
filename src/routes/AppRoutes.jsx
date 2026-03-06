@@ -7,6 +7,8 @@ import Login from "../features/auth/pages/Login";
 import Register from "../features/auth/pages/Register";
 import ProtectedRoute from "./ProtectedRoute";
 import Checkout from "../features/checkout/pages/Checkout";
+import AdminDashboard from "../features/admin/pages/AdminDashboard";
+import AdminRoute from "../routes/AdminRoute"
 
 const AppRoutes = () => {
   return (
@@ -29,6 +31,15 @@ const AppRoutes = () => {
           <ProtectedRoute>
             <Checkout />
           </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admin"
+        element={
+          <AdminRoute>
+            <AdminDashboard />
+          </AdminRoute>
         }
       />
     </Routes>
