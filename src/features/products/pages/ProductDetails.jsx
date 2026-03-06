@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchSingleProduct } from "../productService";
 import { CartContext } from "../../../context/CartContext";
 import Navbar from "../../../components/layout/Navbar";
+import { toast, ToastContainer } from "react-toastify";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -29,6 +30,7 @@ const ProductDetails = () => {
 
   const handleAddToCart = useCallback(() => {
     dispatch({ type: "ADD_ITEM", payload: product });
+    toast("Product added to cart!")
   }, [product, dispatch]);
 
   if (loading) return <h2>Loading..</h2>;
@@ -53,6 +55,7 @@ const ProductDetails = () => {
         </div>
 
         <button onClick={handleAddToCart}>Add to Cart</button>
+        <ToastContainer />
       </div>
     </>
   );

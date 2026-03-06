@@ -7,7 +7,12 @@ const Cart = () => {
     
     const total = useMemo(() => {return cart.reduce((sum, item)=> sum + item.price * item.quantity, 0)}, [cart])
 
-    if(cart.length === 0) return <h2>Your cart is empty</h2>
+    if(cart.length === 0) {
+        return (<div style={{textAlign: "center", marginTop: "2rem"}}>
+            <h2>Your cart is empty</h2>
+            <p>Add some products to continue shopping.</p>
+        </div>)
+    } 
 
   return (
     <div>

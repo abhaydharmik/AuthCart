@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 fetchProducts;
 import ProductCard from "../components/ProductCard";
 import { fetchProducts } from "../productService";
+import Spinner from "../../../components/ui/Spinner";
+import ErrorMessage from "../../../components/ui/ErrorMessage";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -29,9 +31,9 @@ const Home = () => {
     product.title.toLowerCase().includes(search.toLowerCase()),
   );
 
-  if (loading) return <h2>Loading..</h2>;
+  if (loading) return <Spinner />;
 
-  if (error) return <h2>{error}</h2>;
+  if (error) return <ErrorMessage message={error} />;
 
   return (
     <div>
