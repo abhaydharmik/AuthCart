@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import { fetchSingleProduct } from "../productService";
 import { CartContext } from "../../../context/CartContext";
 import Navbar from "../../../components/layout/Navbar";
-import { toast, ToastContainer } from "react-toastify";
+// import { toast, ToastContainer } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -30,7 +31,7 @@ const ProductDetails = () => {
 
   const handleAddToCart = useCallback(() => {
     dispatch({ type: "ADD_ITEM", payload: product });
-    toast("Product added to cart!")
+    toast.success("Product added!!");
   }, [product, dispatch]);
 
   if (loading) return <h2>Loading..</h2>;
@@ -42,20 +43,28 @@ const ProductDetails = () => {
   return (
     <>
       <Navbar />
-      <div className="product-detail">
-        <div className="product-detail-title">
-          <h2>{product.title}</h2>
+      <div className="bg-gray-300 flex flex-col  p-4">
+        <div className="mb-4">
+          <h2 className="font-bold text-lg">{product.title}</h2>
         </div>
-        <div className="product-detail-info">
-          <img src={product.image} alt={product.title} />
-          <div className="product-detail-price">
-            <p>{product.description}</p>
-            <h3>₹{product.price}</h3>
+        <div className=" p-4 flex justify-around items-center">
+          <img src={product.image} alt={product.title} className="h-100" />
+          <div className="text-center flex flex-col mt-4 font-medium space-y-2">
+            <p className="">{product.description}</p>
+            <h3 className="text-xl font-bold text-blue-800">
+              ₹{product.price}
+            </h3>
+            <div className="flex justify-center items-center">
+              <button
+                onClick={handleAddToCart}
+                className="text-white rounded-lg  px-4 py-2 bg-blue-500 hover:bg-blue-800 cursor-pointer"
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
         </div>
-
-        <button onClick={handleAddToCart}>Add to Cart</button>
-        <ToastContainer />
+        <Toaster position="bottom-left" reverseOrder={true} />
       </div>
     </>
   );

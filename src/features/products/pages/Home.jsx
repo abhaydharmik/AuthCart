@@ -4,6 +4,7 @@ import ProductCard from "../components/ProductCard";
 import { fetchProducts } from "../productService";
 import Spinner from "../../../components/ui/Spinner";
 import ErrorMessage from "../../../components/ui/ErrorMessage";
+import Navbar from "../../../components/layout/Navbar";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -37,17 +38,23 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Products</h2>
-      <input
-        type="text"
-        placeholder="Search Product.."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <div className='product-card'>
-        {filterProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+      <Navbar />
+      <div className="p-4 bg-gray-300">
+        <div className="flex justify-between mb-4">
+          <h2 className="font-bold text-xl">Products</h2>
+          <input
+            type="text"
+            placeholder="Search Product.."
+            value={search}
+            className="border px-2 py-1 rounded-lg"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {filterProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );
