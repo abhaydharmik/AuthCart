@@ -4,7 +4,8 @@ import { fetchSingleProduct } from "../productService";
 import { CartContext } from "../../../context/CartContext";
 import Navbar from "../../../components/layout/Navbar";
 // import { toast, ToastContainer } from "react-toastify";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
+import { showSuccess } from "../../../utils/toast";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -31,7 +32,8 @@ const ProductDetails = () => {
 
   const handleAddToCart = useCallback(() => {
     dispatch({ type: "ADD_ITEM", payload: product });
-    toast.success("Product added!!");
+    // toast.success("Product added!!");
+    showSuccess("Product added to cart")
   }, [product, dispatch]);
 
   if (loading) return <h2>Loading..</h2>;
